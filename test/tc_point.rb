@@ -5,20 +5,26 @@ class TestPoint < Test::Unit::TestCase
   def setup
     @origen = Point.new(0,0)
     @unidad = Point.new(1,1)
+
   end
+
   def tear_down
     # nothing
   end
+
   def test_simple
-    assert_equal("(0,0)", @origen.to_s)
-    assert_equal("(5,5)", (@unidad*5).to_s)
-    assert_equal("(-1,-1)", (-@unidad).to_s)
-    assert_equal("(1,1)", (@origen + @unidad).to_s)
+    assert_in_delta(1.0, @unidad.x, 0.001)
+    assert_in_delta(1.0, @unidad.y, 0.001)
+    assert_in_delta(0.0, @origen.x, 0.001)
+    assert_in_delta(0.0, @origen.y, 0.001)
+    assert_equal(@unidad*2, @unidad + @unidad)
   end
+
   def test_type_check
     assert_raise(RuntimeError) {Point.new('1','1')}
   end
-  def test_failure
-    assert_equal("(5,5)", (@origen * 5).to_s, "Producto escalar")
-  end
+
+#  def test_failure
+#    assert_equal("(5,5)", (@origen * 5).to_s, "Producto escalar")
+#  end
 end
