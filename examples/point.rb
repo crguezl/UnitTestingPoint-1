@@ -11,7 +11,7 @@ class Point
   end
 
   def *(other)
-    Point.new(@x * other, @y * other)
+    Point.new(@x * other.x, @y * other.y)
   end
 
   def -@
