@@ -10,8 +10,8 @@ class Point
     "(#{@x},#{@y})"
   end
 
-  def *(other)
-    Point.new(@x * other.x, @y * other.y)
+  def *(number)
+    Point.new(@x * number.x, @y * number.y)
   end
 
   def -@

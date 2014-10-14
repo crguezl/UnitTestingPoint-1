@@ -21,7 +21,7 @@ class TestPoint < Test::Unit::TestCase
   end
 
   def test_type_check
-    assert_raise(RuntimeError) { Point.new('1', '1') }
+    assert_raise(TypeError) { Point.new('1', '1') }
   end
 
   #  def test_failure
